@@ -41,4 +41,6 @@ require('lazy').setup {
   require 'plugins.comment',
   require 'plugins.auto-session',
   require 'plugins.image',
+  require 'plugins.todo-comments',
+  require 'plugins.neogit',
 }
