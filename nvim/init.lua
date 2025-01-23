@@ -37,6 +37,7 @@ require('lazy').setup {
   require 'plugins.alpha',
   require 'plugins.indent-blankline',
   require 'plugins.bufferline',
+  require 'plugins.noicee',
   require 'plugins.misc',
   require 'plugins.comment',
   require 'plugins.auto-session',

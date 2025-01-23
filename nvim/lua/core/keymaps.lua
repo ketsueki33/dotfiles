@@ -89,16 +89,23 @@ vim.keymap.set('n', '<C-a>', 'gg<S-v>G')
 vim.keymap.set('v', '<C-a>', '<Nop>')
 
 -- clear search highlighting & hover menus
-vim.keymap.set('n', '<Esc>', function()
-  vim.cmd.normal '`]' -- Return to last position
-  vim.cmd 'nohlsearch' -- Clear search highlighting
-  vim.cmd 'cclose' -- Close quickfix window
-  for _, win in ipairs(vim.api.nvim_list_wins()) do
-    if vim.api.nvim_win_get_config(win).relative ~= '' then -- If it's a floating window
-      vim.api.nvim_win_close(win, false)
+vim.api.nvim_create_user_command('CloseFloatingWindows', function(ops)
+  for _, window_id in ipairs(vim.api.nvim_list_wins()) do
+    -- If window is floating
+    if vim.api.nvim_win_get_config(window_id).relative ~= '' then
+      -- Force close if called with !
+      vim.api.nvim_win_close(window_id, ops.bang)
     end
   end
-end, { desc = 'Clear search highlighting and close floating windows' })
+end, { bang = true, nargs = 0 })
+
+vim.keymap.set('n', '<Esc>', function()
+  vim.cmd.normal '`]'
+  vim.cmd 'nohlsearch'
+  vim.cmd 'cclose'
+  require('noice').cmd 'dismiss'
+  vim.cmd 'CloseFloatingWindows'
+end, { desc = 'Clear search and close popups' })
 
 -- Copy selection to system clipboard
 vim.keymap.set('v', '<leader>cc', '"+y', opts)
