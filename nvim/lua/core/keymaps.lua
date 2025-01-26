@@ -37,13 +37,13 @@ vim.keymap.set('n', '<Down>', ':resize +2<CR>', opts)
 vim.keymap.set('n', '<Left>', ':vertical resize -2<CR>', opts)
 vim.keymap.set('n', '<Right>', ':vertical resize +2<CR>', opts)
 
--- Buffers
-vim.keymap.set('n', '<Tab>', ':bnext<CR>', opts)
-vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
-vim.keymap.set('n', '<leader>x', ':bdelete!<CR>', opts) -- close buffer
-vim.keymap.set('n', '<leader>b', '<C-^>', opts) -- shift to last active buffer
-vim.keymap.set('n', '<leader>nb', '<cmd> enew <CR>', opts) -- new buffer
-vim.keymap.set('n', '<leader>pb', ':b# | bdelete!<CR>', opts) -- close previous buffer
+-- Buffers ( Commented coz buffers managed by 'barbar.nvim')
+-- vim.keymap.set('n', '<Tab>', ':bnext<CR>', opts)
+-- vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
+-- vim.keymap.set('n', '<leader>x', ':bdelete!<CR>', opts) -- close buffer
+-- vim.keymap.set('n', '<leader>b', '<C-^>', opts) -- shift to last active buffer
+-- vim.keymap.set('n', '<leader>nb', '<cmd> enew <CR>', opts) -- new buffer
+-- vim.keymap.set('n', '<leader>pb', ':b# | bdelete!<CR>', opts) -- close previous buffer
 
 -- Window management
 vim.keymap.set('n', '<leader>sv', '<C-w>v', opts) -- split window vertically
