@@ -7,8 +7,14 @@ return {
     'nvim-telescope/telescope.nvim', -- optional
   },
   config = function()
-    require('neogit').setup()
-    vim.keymap.set('n', '<leader>g', function()
+    require('neogit').setup {
+      graph_style = 'kitty',
+      integrations = {
+        diffview = true,
+        telescope = true,
+      },
+    }
+    vim.keymap.set('n', '<leader>gg', function()
       require('neogit').open()
     end, { desc = 'Open Neogit', noremap = true, silent = true })
   end,

@@ -121,6 +121,7 @@ return {
     --                 :BufferWipeout
 
     -- Close commands
+    map('n', '<Space>bkw', '<Cmd>BufferCloseAllButCurrentOrPinned<CR>', kopts)
     --                 :BufferCloseAllButCurrent
     --                 :BufferCloseAllButPinned
     --                 :BufferCloseAllButCurrentOrPinned
