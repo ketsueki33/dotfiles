@@ -47,6 +47,13 @@ return {
     end,
   },
   {
+    -- Wrapping with HTML Tags using emmet
+    'olrtg/nvim-emmet',
+    config = function()
+      vim.keymap.set({ 'n', 'v' }, '<leader>we', require('nvim-emmet').wrap_with_abbreviation, { desc = '[W]rap with [E]mmet Tag' })
+    end,
+  },
+  {
     -- High-performance color highlighter
     'norcalli/nvim-colorizer.lua',
     config = function()

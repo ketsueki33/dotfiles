@@ -181,6 +181,7 @@ return {
         },
       },
       html = { filetypes = { 'html', 'twig', 'hbs' } },
+      emmet_language_server = {},
       cssls = {},
       tailwindcss = {},
       dockerls = {},

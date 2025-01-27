@@ -22,7 +22,7 @@ vim.opt.rtp:prepend(lazypath)
 --
 --  To update plugins you can run
 --    :Lazy update
---
+
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup {
   require 'colorthemes.sonokai',
@@ -37,7 +37,6 @@ require('lazy').setup {
   require 'plugins.alpha',
   require 'plugins.indent-blankline',
   require 'plugins.barbar',
-  -- require 'plugins.bufferline',
   require 'plugins.noicee',
   require 'plugins.misc',
   require 'plugins.comment',

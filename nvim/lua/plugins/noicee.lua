@@ -9,6 +9,9 @@ return {
         stages = 'fade_in_slide_out',
         timeout = 1500,
       },
+      config = function()
+        vim.keymap.set('n', '<leader>sy', ':Telescope notify<CR>', { noremap = true, silent = true, desc = 'Search Notifications (Telescope)' })
+      end,
     },
   },
   opts = {
