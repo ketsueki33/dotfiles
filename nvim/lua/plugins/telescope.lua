@@ -58,8 +58,19 @@ return {
       },
       pickers = {
         find_files = {
-          file_ignore_patterns = { 'node_modules', '.git', '.venv' },
-          hidden = true,
+          find_command = {
+            'fd',
+            '--type',
+            'file',
+            '--hidden',
+            '--strip-cwd-prefix',
+            '--exclude',
+            'node_modules',
+            '--exclude',
+            '.git',
+            '--exclude',
+            '.venv',
+          },
         },
       },
       live_grep = {
