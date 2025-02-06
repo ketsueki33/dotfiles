@@ -50,6 +50,7 @@ return {
       -- Actions
       map('n', '<leader>hs', gs.stage_hunk, { desc = 'stage/unstage hunk' })
       map('n', '<leader>hp', gs.preview_hunk, { desc = 'Preview hunk' })
+      map('n', '<leader>hx', gs.reset_hunk, { desc = 'Discard changes in this hunk' })
       map('n', '<leader>gbf', gs.blame, { desc = '[G]it [B]lame for [F]ile' })
       map('n', '<leader>gbl', gs.blame_line, { desc = '[G]it [B]lame for [L]ine' })
       map('n', '<leader>gtb', gs.toggle_current_line_blame, { desc = 'Toggle current line blame' })

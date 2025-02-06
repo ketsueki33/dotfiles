@@ -42,3 +42,7 @@ vim.opt.iskeyword:append '-' -- Hyphenated words recognized by searches (default
 vim.opt.formatoptions:remove { 'c', 'r', 'o' } -- Don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode. (default: 'croql')
 vim.opt.runtimepath:remove '/usr/share/vim/vimfiles' -- Separate Vim plugins from Neovim in case Vim still in use (default: includes this path if Vim is installed)
 vim.opt.showcmdloc = 'statusline' -- show keystrokes in statusline
+vim.opt.autoread = true -- refresh files when changed externally
+vim.opt.foldmethod = 'expr' -- Configure Treesitter-based folding
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()' -- Configure Treesitter-based folding
+vim.opt.foldenable = false -- Don't fold by default

@@ -44,4 +44,5 @@ require('lazy').setup {
   require 'plugins.image',
   require 'plugins.todo-comments',
   require 'plugins.neogit',
+  require 'plugins.diffview',
 }
