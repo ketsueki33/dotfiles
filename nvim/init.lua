@@ -45,4 +45,5 @@ require('lazy').setup {
   require 'plugins.todo-comments',
   require 'plugins.neogit',
   require 'plugins.diffview',
+  require 'plugins.flash',
 }
