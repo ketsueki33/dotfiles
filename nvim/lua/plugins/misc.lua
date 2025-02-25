@@ -57,16 +57,22 @@ return {
     -- High-performance color highlighter
     'norcalli/nvim-colorizer.lua',
     config = function()
-      require('colorizer').setup(nil, {
+      local ok, colorizer = pcall(require, 'colorizer')
+      if not ok then
+        return
+      end
+
+      colorizer.setup({ 'css', 'javascript', 'lua', 'vim', 'toml', 'svelte', 'typescript', 'tsx', 'jsx' }, {
         RGB = true, -- #RGB hex codes
         RRGGBB = true, -- #RRGGBB hex codes
-        names = true, -- "Name" codes like Blue
+        names = false, -- "Name" codes like Blue or blue
         RRGGBBAA = true, -- #RRGGBBAA hex codes
         rgb_fn = true, -- CSS rgb() and rgba() functions
         hsl_fn = true, -- CSS hsl() and hsla() functions
         css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-        css_fn = true, -- Enable all CSS functions: rgb_fn, hsl_fn
-        mode = 'background', -- Set the display mode: foreground or background
+        css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+        -- Available modes: foreground, background, virtualtext
+        mode = 'background', -- Set the display mode
       })
     end,
   },
