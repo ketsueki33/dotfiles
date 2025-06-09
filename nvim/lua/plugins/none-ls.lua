@@ -42,25 +42,9 @@ return {
       },
 
       -- Formatting
-      formatting.prettierd.with {
-        filetypes = { 'html', 'json', 'yaml', 'markdown', 'javascript', 'typescript', 'typescriptreact', 'css', 'scss', 'less' },
-        extra_args = {
-          '--tab-width',
-          '4',
-          '--print-width',
-          '90',
-          '--double-quote', -- Use double quotes instead of single quotes
-          '--semi', -- Add semicolons at the end
-          '--trailing-comma',
-          'all',
-          '--quote-props',
-          'as-needed',
-          '--embedded-language-formatting',
-          'auto', -- Respect JSON formatting inside files
-          '--prose-wrap',
-          'preserve', -- This will respect existing line breaks in JSON files
-        },
-      },
+      null_ls.builtins.formatting.prettierd,
+      -- formatting.prettierd,
+
       -- Add C++ formatter
       formatting.clang_format.with {
         filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
@@ -85,7 +69,13 @@ return {
             group = augroup,
             buffer = bufnr,
             callback = function()
-              vim.lsp.buf.format { async = false }
+              vim.lsp.buf.format {
+                async = false,
+                -- this filter is for making sure only null-ls(none-ls) is used for formatting
+                filter = function(c)
+                  return c.name == 'null-ls'
+                end,
+              }
             end,
           })
         end

@@ -162,7 +162,17 @@ return {
       --    https://github.com/pmizio/typescript-tools.nvim
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
-      ts_ls = {}, -- tsserver is deprecated
+      ts_ls = { -- tsserver
+        -- ts_ls config to ensure ts_ls sever does not format code
+        capabilities = {
+          documentFormattingProvider = false,
+          documentRangeFormattingProvider = false,
+        },
+        on_attach = function(client)
+          client.server_capabilities.documentFormattingProvider = false
+          client.server_capabilities.documentRangeFormattingProvider = false
+        end,
+      },
       ruff = {},
       pylsp = {
         settings = {
